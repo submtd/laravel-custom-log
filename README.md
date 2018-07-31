@@ -1,2 +1,2 @@
-# laravel-custom-log-file
+# laravel-custom-log
 Define log files programatically 

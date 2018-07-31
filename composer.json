@@ -1,6 +1,6 @@
 {
-    "name": "submtd/laravel-custom-log-file",
-    "description": "Define log files programatically",
+    "name": "submtd/laravel-custom-log",
+    "description": "Define custom log drivers from within a class",
     "authors": [
         {
             "name": "Steve Harmeyer",
@@ -11,7 +11,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Submtd\\LaravelCustomLogFile\\": "src/"
+            "Submtd\\LaravelCustomLog\\": "src/"
         }
     }
 }

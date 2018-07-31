@@ -1,6 +1,6 @@
 <?php
 
-namespace Submtd\LaravelCustomLogFile;
+namespace Submtd\LaravelCustomLog;
 
 use Illuminate\Support\Facades\Log;
 
