@@ -1,0 +1,17 @@
+{
+    "name": "submtd/laravel-custom-log-file",
+    "description": "Define log files programatically",
+    "authors": [
+        {
+            "name": "Steve Harmeyer",
+            "email": "harmeyersteve@gmail.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Submtd\\LaravelCustomLogFile\\": "src/"
+        }
+    }
+}
