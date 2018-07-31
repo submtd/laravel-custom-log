@@ -48,6 +48,9 @@ trait HasCustomLog
 
     private static function log($severity, $message)
     {
+        if (!is_string($message)) {
+            $message = json_encode($message);
+        }
         $class = get_called_class();
         $config = null;
         if (method_exists($class, 'logChannel') && is_callable([$class, 'logChannel'])) {
