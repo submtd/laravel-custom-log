@@ -49,10 +49,15 @@ trait HasCustomLog
     private static function log($severity, $message)
     {
         $class = get_called_class();
-        if (!method_exists($class, 'logChannel') || !is_callable([$class, 'logChannel'])) {
-            return Log::$severity($message);
+        if (method_exists($class, 'logChannel') && is_callable([$class, 'logChannel'])) {
+            config([
+                'logging.channels.customLog' => call_user_func([$class, 'logChannel'])
+            ]);
+        } else {
+            config([
+                'logging.channels.customLog' => config('logging.channels.' . config('logging.default', 'stack'))
+            ]);
         }
-        config(['logging.channels.customLog' => call_user_func([$class, 'logChannel'])]);
         return Log::channel('customLog')->$severity($message);
     }
 }
