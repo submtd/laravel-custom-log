@@ -48,10 +48,11 @@ trait HasCustomLog
 
     private static function log($severity, $message)
     {
-        if (!method_exists(self, 'logChannel') || !is_callable([self, 'logChannel'])) {
+        $class = get_called_class();
+        if (!method_exists($class, 'logChannel') || !is_callable([$class, 'logChannel'])) {
             return Log::$severity($message);
         }
-        config(['logging.channels.customLog' => call_user_func([self, 'logChannel'])]);
+        config(['logging.channels.customLog' => call_user_func([$class, 'logChannel'])]);
         return Log::channel('customLog')->$severity($message);
     }
 }
